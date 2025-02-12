@@ -1,35 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import OverviewPage from "./pages/OverviewPage";
+import ChatPage from "./pages/ChatPage";
+import TeamPage from "./pages/TeamPage";
+import { Sidebar } from "lucide-react";
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="flex h-screen bg-white overflow-hidden border-2">
+      <Sidebar />
+      <Routes>
+        <Route path="/" element={<OverviewPage />} />
+        <Route path="/chat" element={<ChatPage />} />
+        <Route path="/team" element={<TeamPage />} />
+      </Routes>
+    </div>
+  );
+};
 
-export default App
+export default App;
