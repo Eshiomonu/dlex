@@ -1,18 +1,27 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import OverviewPage from "./pages/OverviewPage";
-import ChatPage from "./pages/ChatPage";
-import TeamPage from "./pages/TeamPage";
-import { Sidebar } from "lucide-react";
+import React, { useState } from "react";
+// import { Route, Routes } from "react-router-dom";
+// import OverviewPage from "./pages/OverviewPage";
+// import ChatPage from "./pages/ChatPage";
+// import TeamPage from "./pages/TeamPage";
+import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
+
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
   return (
-    <div className="flex h-screen bg-white overflow-hidden border-2">
-      <Sidebar />
+    <div>
+      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+      {/* <Sidebar /> */}
+      {/*
       <Routes>
         <Route path="/" element={<OverviewPage />} />
         <Route path="/chat" element={<ChatPage />} />
         <Route path="/team" element={<TeamPage />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 };
