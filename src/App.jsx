@@ -8,14 +8,23 @@ import Sidebar from "./components/Sidebar/Sidebar";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
     <div>
-      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-      {/* <Sidebar /> */}
+      <Header
+        toggleDarkMode={toggleDarkMode}
+        darkMode={darkMode}
+        toggleSidebar={toggleSidebar}
+      />
+      <Sidebar isSidebarOpen={isSidebarOpen} />
       {/*
       <Routes>
         <Route path="/" element={<OverviewPage />} />
